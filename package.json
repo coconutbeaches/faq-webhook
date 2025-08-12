@@ -1,0 +1,7 @@
+{
+  "name": "faq-webhook",
+  "version": "1.0.0",
+  "main": "api/create.js",
+  "type": "module",
+  "dependencies": {}
+}
