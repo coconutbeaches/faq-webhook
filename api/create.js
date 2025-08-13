@@ -2,6 +2,13 @@ export default async function handler(req, res) {
   const headerSecret = req.headers['secret'];
   const bodySecret = req.body?.secret;
   
+  // Debug logging
+  console.log('Headers:', JSON.stringify(req.headers, null, 2));
+  console.log('Body:', JSON.stringify(req.body, null, 2));
+  console.log('Header secret:', headerSecret);
+  console.log('Body secret:', bodySecret);
+  console.log('Expected secret:', process.env.WEBHOOK_SECRET);
+  
   const providedSecret = headerSecret || bodySecret;
   
   if (providedSecret !== process.env.WEBHOOK_SECRET) {
