@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
   // Try multiple header variations (Vercel may lowercase headers)
-  const headerSecret = req.headers['secret'] || req.headers['Secret'] || req.headers['x-secret'] || req.headers['authorization'];
+  const headerSecret = req.headers['x-webhook-secret'] || req.headers['secret'] || req.headers['Secret'] || req.headers['x-secret'] || req.headers['authorization'];
   const bodySecret = req.body?.secret;
   
   // Debug logging
