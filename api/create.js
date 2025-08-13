@@ -1,5 +1,6 @@
 export default async function handler(req, res) {
-  const headerSecret = req.headers['secret'];
+  // Try multiple header variations (Vercel may lowercase headers)
+  const headerSecret = req.headers['secret'] || req.headers['Secret'] || req.headers['x-secret'] || req.headers['authorization'];
   const bodySecret = req.body?.secret;
   
   // Debug logging
